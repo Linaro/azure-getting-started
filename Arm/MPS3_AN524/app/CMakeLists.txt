@@ -14,12 +14,18 @@ set(SOURCES
     main.c
     board_init.c
     console.c
+    psa_attestation.c
+    psa_crypto.c
+    util_app_cfg.c
+    util_app_log.c
+    util_sformat.c
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
 target_compile_definitions(${PROJECT_NAME}
    PRIVATE
+      $<$<BOOL:${PRIVATE_KEY_STATIC}>:PRIVATE_KEY_STATIC>
       $<$<BOOL:${TFM_REGRESSION}>:TFM_REGRESSION>
       $<$<BOOL:${TFM_PSA_TEST}>:TFM_PSA_TEST>
 )

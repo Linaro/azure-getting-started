@@ -135,6 +135,13 @@ cmake_dependent_option(TFM_IPC
     BUILD_WITH_TFM OFF
 )
 
+cmake_dependent_option(PRIVATE_KEY_STATIC
+    "When enabled, this option signifies that a static private key should
+     used as key data for secp256r1 private key."
+    ON
+    BUILD_WITH_TFM OFF
+)
+
 cmake_dependent_option(TFM_REGRESSION
     "When enabled, this option signifies that the TF-M build includes
      the Secure and the Non-Secure regression tests."
